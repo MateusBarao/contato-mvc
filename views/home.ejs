@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/geral.css">
+    <!-- fonte: https://github.com/sergiomoura/contatos-html-template/blob/main/css/geral.css -->
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Open Sans', Arial, sans-serif;
+        }
+        html {
+            height: 100%;
+            font-size: 18px;
+        }
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #212121;
+            color: #CCC;
+            height: 100%;
+            /* background-image: url(../img/bg.jpg); */
+            /* Alteração na cor de fundo para compensar a ausência do background-image*/
+            background-color: #999;
+            /* Fim de alteração */
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        body::before {
+            height: 100%;
+            z-index: -1;
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            pointer-events: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        form label {
+            font-size: 0.8rem;
+            display: block;
+            margin: 0 0 10px 0;
+        }
+        input[type=text],
+        input[type=email],
+        input[type=search],
+        input[type=password] {
+            padding: 5px;
+            font-size: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0);
+            background-color: rgba(256, 256, 256, 0.8);
+        }
+        input[type=text]:focus,
+        input[type=email]:focus,
+        input[type=search]:focus,
+        input[type=password]:focus {
+            outline: none;
+            border: 2px solid rgb(60, 0, 200);
+            background-color: rgba(256, 256, 256, 1);
+        }
+        button {
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: rgb(60, 0, 200);
+            color: #CCC;
+            font-size: 0.9rem;
+            border-radius: 2px;
+        }
+        button:hover {
+            background-color: rgb(80, 0, 250);
+            color: #fff;
+        }
+        button.link {
+            background-color: transparent;
+            color: rgb(80, 0, 250);
+            text-decoration: underline;
+        }
+        button.link:hover {
+            color: #CCC;
+        }
+        a {
+            background-color: transparent;
+            color: rgb(80, 0, 250);
+            text-decoration: underline;
+            display: inline-block;
+        }
+        a:hover {
+            color: #CCC;
+        }
+    </style>
+    <!-- fonte: https://github.com/sergiomoura/contatos-html-template/blob/main/css/home.css -->
+    <style>
+        nav {
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid rgba(256, 256, 256, 0.2);
+        }
+        nav>ul {
+            margin: 0;
+            padding: 0;
+            width: 960px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        nav>ul>li {
+            display: inline-block;
+            margin: 0px;
+            padding: 0px;
+            position: relative;
+        }
+        nav>ul>li>a {
+            display: inline-block;
+            text-decoration: none;
+            color: #ccc;
+            padding: 20px;
+            font-size: 1.2;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        nav>ul>li>a:hover {
+            background-color: rgba(256, 256, 256, 0.3);
+        }
+        nav>ul>li:nth-child(3) {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+        nav>ul>li:nth-child(3)>input {
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 50%;
+            transition: background-color 500ms ease;
+        }
+        nav>ul>li:nth-child(3)>button {
+            content: "";
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            right: 5px;
+            /* background-image: url(../img/search_white_24dp.svg); */
+            background-color: transparent;
+            padding: 0;
+        }
+        nav>ul>li:last-child {
+            margin-left: auto;
+        }
+        main {
+            width: 960px;
+            margin: 80px auto 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 0 0 50px 0;
+        }
+        main section {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            position: relative;
+        }
+        main section h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 1.2rem;
+        }
+        main div {
+            margin-top: 5px;
+        }
+        main div a {
+            text-decoration: none;
+            color: rgb(60, 0, 200);
+            font-size: 0.8rem;
+            display: block;
+            font-style: italic;
+        }
+        main section ul {
+            margin: 10px 0 50px 0;
+            padding: 0;
+        }
+        main section ul li {
+            list-style: none;
+            display: block;
+        }
+        main section ul li a {
+            display: block;
+            padding: 10px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: normal;
+            border-bottom: 1px solid #333;
+            text-align: right;
+        }
+        main section ul li a:hover {
+            background-color: #333;
+        }
+        main section>a {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            background-color: rgb(60, 0, 200);
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 2px;
+        }
+        #modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(6px);
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+            opacity: 0;
+            transition: opacity 3s linear;
+        }
+        #modal form {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            box-shadow: 0 0 2px inset rgba(256, 256, 256, 0.3);
+            width: 400px;
+        }
+        #modal form input {
+            display: block;
+            width: 100%;
+        }
+        #modal form div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        #modal form div input {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        #modal form div a.remove {
+            color: #C00;
+        }
+        #modal form div a.remove:hover {
+            color: rgb(252, 7, 7);
+        }
+        #modal form .controles {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            margin-bottom: 0;
+        }
+    </style>
+    
+    <title>Contatos</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="selected"><a>Home</a></li>
+            <li><a href="#" id="linkAbrirModal">Adicionar Contato</a></li>
+            <li>
+                <input type="search" name="search" id="search">
+                <button type="submit"></button>
+            </li>
+            <li><a href="index.html"><i class="material-icons">exit_to_app</i></a></li>
+        </ul>
+    </nav>
+    <main>
+        <% for (let c of contatos) { %>
+            <section>
+                <h3><%= c.nome %></h3>
+                <div>
+                    <a href="mailto:email@docontato.com">email@docontato.com</a>
+                    <a href="mailto:email@docontato.com">email@docontato.com</a>
+                    <a href="mailto:email@docontato.com">email@docontato.com</a>
+                </div>
+                <ul>
+                    <li><a href="tel:9999999999">99999 - 9999</a></li>
+                    <li><a href="tel:9999999999">99999 - 9999</a></li>
+                    <li><a href="tel:9999999999">99999 - 9999</a></li>
+                </ul>
+                <a href="/contatos/<%= c.id %>">Editar</a>
+            </section>
+        <% } %>
+        
+    </main>
+    <div id="modal">
+        <form>
+            <label>
+                Nome:
+                <input type="text" name="nome" id="nome">
+            </label>
+            <label>
+                E-mail:
+                <input type="email" name="email" id="email">
+            </label>
+            <label>
+                Telefone:
+                <div>
+                    <input type="email" name="email" id="email">
+                    <a href=""><i class="material-icons">add_circle</i></a>
+                </div>
+                <div>
+                    <input type="email" name="email" id="email">
+                    <a class="remove" href=""><i class="material-icons">remove_circle</i></a>
+                </div>
+                <div>
+                    <input type="email" name="email" id="email">
+                    <a class="remove" href=""><i class="material-icons">remove_circle</i></a>
+                </div>
+            </label>
+            <div class="controles">
+                <button class="link">Cancelar</button>
+                <button>Adicionar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

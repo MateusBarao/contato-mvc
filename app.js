@@ -16,6 +16,8 @@ const servidor = express();
 
 servidor.set('view engine', 'ejs');
 
+servidor.use(express.static('public'));
+
 // criar uma rota get no endereço '/' para responder a requisição com a mensagem olá
 
 servidor.get('/', (req, res)=>{

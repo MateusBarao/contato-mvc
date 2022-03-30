@@ -290,13 +290,13 @@
         </ul>
     </nav>
     <main>
-        <% for (let c of contatos) { %>
+        <% for(let c of contatos) { %>
             <section>
                 <h3><%= c.nome %></h3>
                 <div>
-                    <% for (let e of c.email) { %>
-                    <a href="mailto:<%= c.email %>> <%= c.email %> </a>
-                    <% } %> 
+                    <% for(let e of c.emails) { %>
+                    <a href="<%= e %>"><%= e %></a>
+                    <% } %>
                 </div>
                 <ul>
                     <li><a href="tel:9999999999">99999 - 9999</a></li>

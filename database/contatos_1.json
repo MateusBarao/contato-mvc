@@ -2,7 +2,7 @@
     {
         "id":1,
         "nome":"Kakashi Hatake",
-        "emails":["kakashi@anbu.com"],
+        "emails":["kakashi@anbu.com", "kakashi@hokages.com"],
         "telefones":["99999-1111","98888-1234"]
     },
     {

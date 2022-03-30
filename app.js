@@ -6,6 +6,7 @@ const { append } = require('express/lib/response');
 // importar os roteadores
 
 const contatosRouter = require ('./routes/ContatosRouter');
+const usuariosRouter = require ('./routes/usuariosRouter');
 
 // criar um servidor
 
@@ -23,6 +24,7 @@ servidor.get('/', (req, res)=>{
 
 // usando os roteadores
 
+servidor.use('/', usuariosRouter);
 servidor.use('/', contatosRouter);
 
 // rodar a aplicação

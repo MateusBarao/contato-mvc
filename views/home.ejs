@@ -294,9 +294,9 @@
             <section>
                 <h3><%= c.nome %></h3>
                 <div>
-                    <a href="mailto:email@docontato.com">email@docontato.com</a>
-                    <a href="mailto:email@docontato.com">email@docontato.com</a>
-                    <a href="mailto:email@docontato.com">email@docontato.com</a>
+                    <% for (let e of c.email) { %>
+                    <a href="mailto:<%= c.email %>> <%= c.email %> </a>
+                    <% } %> 
                 </div>
                 <ul>
                     <li><a href="tel:9999999999">99999 - 9999</a></li>

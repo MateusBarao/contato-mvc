@@ -299,9 +299,9 @@
                     <% } %>
                 </div>
                 <ul>
-                    <li><a href="tel:9999999999">99999 - 9999</a></li>
-                    <li><a href="tel:9999999999">99999 - 9999</a></li>
-                    <li><a href="tel:9999999999">99999 - 9999</a></li>
+                    <% for(let t of c.telefones) { %>
+                    <li><a href="<%= t %>"><%= t %></a></li>
+                    <% } %>
                 </ul>
                 <a href="/contatos/<%= c.id %>">Editar</a>
             </section>

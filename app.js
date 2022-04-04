@@ -8,6 +8,9 @@ const { append } = require('express/lib/response');
 const contatosRouter = require ('./routes/ContatosRouter');
 const usuariosRouter = require ('./routes/usuariosRouter');
 
+// importar os middlewares
+const marcaEntradaRequisicao = require ('./middlewares/marcaEntradaRequisicao');
+
 // criar um servidor
 
 const servidor = express();
@@ -19,6 +22,8 @@ servidor.set('view engine', 'ejs');
 servidor.use(express.urlencoded({  extended: false  }));
 
 servidor.use(express.static('public'));
+
+servidor.use(marcaEntradaRequisicao);
 
 // criar uma rota get no endereço '/' para responder a requisição com a mensagem olá
 

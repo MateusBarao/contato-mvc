@@ -24,6 +24,21 @@
         "id": 4,
         "nome": "teste",
         "email": "teste@teste.com",
-        "senha": "$2b$10$JM67D5rDsp1a.ZQP69iehuJYTIrsjVul3i1iJYJlseS5ni9/Vn9y6"
+        "senha": "$2b$10$JM67D5rDsp1a.ZQP69iehuJYTIrsjVul3i1iJYJlseS5ni9/Vn9y6",
+        "adimplente": true
+    },
+    {
+        "id": 5,
+        "nome": "teste2",
+        "email": "teste2@teste2.com",
+        "senha": "$2b$10$.MC425tlWOdsLlhkKUgBzelyvUtsvXSR4SlkSJu3WyuuJYpwfII9e",
+        "adimplente": true
+    },
+    {
+        "id": 6,
+        "nome": "teste3",
+        "email": "teste3@teste3.com",
+        "senha": "$2b$10$moXtpxXP/Lgj5NoJmvCbIuyjmqMJExObAdS9E/ckq1iPyTixaqtum",
+        "adimplente": true
     }
 ]

@@ -1,7 +1,8 @@
-// importar o express
+// importar dependências
 
 const express = require('express');
 const { append } = require('express/lib/response');
+const session = require ('express-session');
 
 // importar os roteadores
 
@@ -22,6 +23,12 @@ servidor.set('view engine', 'ejs');
 servidor.use(express.urlencoded({  extended: false  }));
 
 servidor.use(express.static('public'));
+
+servidor.use(session({
+    secret: "Frase Genérica",
+    resave: false,
+    saveUninitialized: false,
+}));
 
 servidor.use(marcaEntradaRequisicao);
 

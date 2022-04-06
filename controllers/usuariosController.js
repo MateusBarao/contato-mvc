@@ -1,10 +1,12 @@
-let usuarios = require('../database/usuarios.json');
+const usuarios = require('../database/usuarios.json');
 
 const bcrypt = require('bcrypt');
 
 const fs = require('fs');
 
 const path = require('path');
+const res = require('express/lib/response');
+const { brotliCompress } = require('zlib');
 
 module.exports = {
     showRegistrar: (req, res) => {
@@ -22,7 +24,8 @@ module.exports = {
             "id": idNovo,
             "nome": nome,
             "email": email,
-            "senha": senhaCriptografada
+            "senha": senhaCriptografada,
+            "adimplente": true
         }
 
         usuarios.push(usuario);
@@ -30,5 +33,36 @@ module.exports = {
         fs.writeFileSync(path.join(__dirname, '/../database/usuarios.json'), JSON.stringify(usuarios, null, 4));
 
         res.redirect('/contatos');
+    },
+
+    mostrarLogin: (req, res) => {
+        res.render('login.ejs');
+    },
+
+    login: (req, res) => {
+        //extrair o login e a senha digitadas pelo usuário
+        let {email, senha} = req.body;
+
+        /**
+         * Equivale a:
+         * let email = req.body.email;
+         * let senha = req.body.senha;
+         */
+
+        //carregar o meu array de usuários(ja ta carregado la em cima) 
+
+        //verificar se o usuário existe no sistema
+        usuarios.find( 
+            u => u.email == email && bcrypt.compareSync(senha, u.senha)
+         //       if(u.email == email && bcrypt.compareSync(senha, u.senha)) 
+         //           return true;
+        //        } else {
+         //           return false;
+         //   }
+        );
+
+        //se o usuário não for encontrado, ou a senha for inválida, retornar mensagem de erro
+
+        //se o usuário existir, criar a session do usuário e redirecioná-lo para a tela que lista os contatos
     }
 }

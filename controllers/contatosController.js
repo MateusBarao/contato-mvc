@@ -1,17 +1,13 @@
-// Para fim de testes, assumiremos que o usuário logado é o usuário de id=1
-
-const uid = 1;
-
 module.exports = {
     listarContatos: (req, res)=>{
-        let contatos = require(`../database/contatos_${uid}.json`);
+        let contatos = require(`../database/contatos_${req.usuario.id}.json`);
         res.render('home.ejs', {
             contatos: contatos
         });
     },
 
     capturarContato: (req, res) => { 
-        let contatos = require(`../database/contatos_${uid}.json`);
+        let contatos = require(`../database/contatos_${req.usuario.id}.json`);
 
         // descobrir qual id o usuário quer
 

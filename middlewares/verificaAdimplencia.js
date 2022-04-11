@@ -1,11 +1,7 @@
-//para efeitos de teste iremos super que o usuário é o de id 1
-
-const uid = 3;
-
 module.exports = (req, res, next) => {
     let usuarios = require('../database/usuarios.json');
 
-    const usuario = usuarios.find (u => u.id == uid); 
+    const usuario = usuarios.find (u => u.id == req.usuario.id); 
 
     if (usuario.adimplente == true) {
         next();

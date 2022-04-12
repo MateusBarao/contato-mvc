@@ -8,6 +8,5 @@ module.exports = (req, res, next) => {
     } else {
         res.send ('Favor entrar em contato com o setor financeiro.');
     }
-
+};
     
-}

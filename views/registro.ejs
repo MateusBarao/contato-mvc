@@ -19,11 +19,11 @@
     <form action ="/usuarios" method="post">
         <label>
             Nome:
-            <input type="text" name="nome" id="nome">
+            <input type="text" name="nome" id="nome" value="<%= locals.old && old.nome%>">
         </label>
         <label>
             E-mail:
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" value="<%= locals.old && old.email%>">
         </label>
         <label>
             Senha:
@@ -37,6 +37,14 @@
             <button class="link">Cancelar</button>
             <button type="submit">Registrar</button>
         </div>
+        <% if(typeof errors !== 'undefined'){ %>
+            <p>Erros:</p>
+                <ul>
+                    <% for (let e in errors) { %>
+                        <li><%= errors[e].msg %></li>
+                    <% } %>
+                </ul>
+        <% } %>
     </form>
 </body>
 </html>

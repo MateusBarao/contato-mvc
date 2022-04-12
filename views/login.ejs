@@ -161,6 +161,9 @@
             <a href="#" class="link">Registrar-se</a>
             <button type="submit">Entrar</button>
         </div>
+        <% if(typeof errors != "undefined") { %>    
+            <p style="color: white; margin-top: 20px"><%= errors %></p>
+        <% } %>
     </form>
 
 </body>

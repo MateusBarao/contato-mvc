@@ -58,8 +58,8 @@ module.exports = {
         //carregar o meu array de usuários(ja ta carregado la em cima) 
 
         //verificar se o usuário existe no sistema
-        let usuario = usuarios.find( 
-            u => u.email == email && bcrypt.compareSync(senha, u.senha) );
+        let usuario = usuarios.find(
+            (u) => u.email == email && bcrypt.compareSync(senha, u.senha) );
          //       if(u.email == email && bcrypt.compareSync(senha, u.senha)) 
          //           return true;
         //        } else {
@@ -73,7 +73,7 @@ module.exports = {
             return res.render('login.ejs', {errors: "Usuário não foi encontrado", old: req.body}); 
         }
         
-        if (!bcrypt.compareSync(senha, u.senha)){
+        if (!bcrypt.compareSync(senha, usuario.senha)){
             res.render('login', {errors: "Senha incorreta"})
         }
         //se o usuário existir, criar a session do usuário e redirecioná-lo para a tela que lista os contatos

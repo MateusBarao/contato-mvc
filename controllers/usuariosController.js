@@ -70,7 +70,7 @@ module.exports = {
         //se o usuário não for encontrado, ou a senha for inválida, retornar mensagem de erro
 
         if (usuario === undefined){
-            return res.render('login.ejs', {errors: "Usuário não foi encontrado"}); 
+            return res.render('login.ejs', {errors: "Usuário não foi encontrado", old: req.body}); 
         }
         
         if (!bcrypt.compareSync(senha, u.senha)){

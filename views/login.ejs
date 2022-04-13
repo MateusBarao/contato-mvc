@@ -151,7 +151,7 @@
     <form action="/login" method="post">
         <label>
             E-mail:
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" value="<%= locals.old && old.email%>">
         </label>
         <label>
             Senha:
@@ -162,7 +162,7 @@
             <button type="submit">Entrar</button>
         </div>
         <% if(typeof errors != "undefined") { %>    
-            <p style="color: white; margin-top: 20px"><%= errors %></p>
+            <p><%= errors %></p>
         <% } %>
     </form>
 
